@@ -1,0 +1,135 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+th{
+    width: 7%;
+    text-align: center !important;
+    margin-bottom: 10px;
+    border: 1px solid black !important;
+}
+td{
+    width: 7%;
+    border: 1px solid black !important;
+    text-align: center;
+}
+.mainRight_table_anh{
+    width: 100%;
+    object-fit: contain;
+}
+.mainRight_btnADD{
+    
+    margin-top: 15px;
+}
+.mainRight_btnADD a{
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+}
+.mainRight_tittle{
+    
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.mainRight_table_mota{
+    height: 100px !important;
+    text-align: center;
+    overflow-y: scroll;
+}
+.mainRight_header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+}
+.icon{
+    font-size: 20px;
+    padding: 0px 4px;
+}
+.icon1{
+    color: blue ;
+}
+.icon2{
+    color: red;
+}
+.mainRight_search{
+    width: 100%;
+}
+.mainRight_search_frame{
+    width: 100%;
+    padding: 15px 0px;
+}
+.mainRight_search_item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px auto;
+}
+.mainRight_search_item p{
+    text-align: center;
+    font-size: 18px;
+    margin: 0px 15px;
+    width: 15%;
+}
+.mainRight_search_item input{
+    width: 30%;
+    padding: 4px 0px;
+    outline: none;
+}
+.mainRight_search_submit{
+    width: 15%;
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 4px;
+}
+.mainRight_table_anh-50{
+    width: 35%;
+}
+.mainRight_search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 0px 15px 0px;
+}
+.mainRight_search_item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}
+.mainRight_search_text-short{
+    font-size: 1.2rem;
+    margin-right: 7px;
+}
+.mainRight_search input{
+    width: 30%;
+    padding: 7px 2px;
+}
+.mainRIght_search_btn{
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    font-size: 1.2rem;
+}
+.mainRIght_search_btn i{
+    opacity: 0.8;
+}
+.color-red{
+    color: red;
+}
+.color-green{
+    color: rgb(11, 243, 50);
+}
+.text-fontweight{
+    font-weight: 700;
+}
+.text-uppercase{
+    text-transform: uppercase;
+}
