@@ -152,6 +152,17 @@ else{
 					<span>Đơn hàng</span>
 				</a>
 			</li>
+
+			<li  class="sidebar-nav-item">
+				<a href="./admin_tintuc.php" class="sidebar-nav-link">
+					<div>
+					<i class="fa-solid fa-newspaper"></i>
+					</div>
+					<span>Tin tức</span>
+				</a>
+			</li>
+
+
 			<li  class="sidebar-nav-item">
 				<a href="./admin_doanhthu.php" class="sidebar-nav-link">
 					<div>
