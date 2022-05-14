@@ -39,7 +39,6 @@
 			$query=mysqli_query($conn, $sql);
 			while($row=mysqli_fetch_assoc($query))
 			{
-                echo print_r($row);
 			?>
                 <tr>
                     <td><?php echo $row["ID_hang"]?></td>
