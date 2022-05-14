@@ -75,11 +75,6 @@ session_start();
                 <div class="main-1-right-price">
                     <p class="main-1-right-price-text"> <del><?php echo number_format( $row["giacu"])?>đ</del>  <?php echo number_format($row["giamoi"])?>đ</p>
                 </div>
-
-                <div class="main-1-right-introduce">
-                    <p><?php echo $row["mota"]?></p>
-                </div>
-
                 <ul class="main-1-right-ingredient">
                     <?php
                     if($row["soluong"]>0)
