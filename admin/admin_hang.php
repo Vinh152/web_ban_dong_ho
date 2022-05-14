@@ -4,7 +4,7 @@
     <div class="wrapper">
         <div class="mainRight_header">
 		<h1 class="mainRight_tittle">Thông tin các hãng đồng hồ</h1>
-		<p class="mainRight_btnADD"><a href="./admin_sanpham_them.php">Thêm hãng</a></p>
+		<p class="mainRight_btnADD"><a href="./admin_hang_them.php">Thêm hãng</a></p>
 		</div>
         <form class="mainRight_search" method="GET">
             <div class="mainRight_search_item">
