@@ -44,7 +44,13 @@
        $baohanh=$_POST["baohanh"];
        $theloai=$_POST["theloai"];
        $mota=$_POST["mota"];
-	   $sql="UPDATE `sanpham` SET `tensanpham`='$tensanpham',`giamoi`='$giamoi',`giacu`='$giacu',`soluong`='$soluong',`anhgoc`='$anhgoc',`anh1`='$anh1',`anh2`='$anh2',`anh3`='$anh3',`anh4`='$anh4',`ID_hang`='$ID_hang',`theloai`='$theloai',`mota`='$mota',`duongkinh`='$duongkinh',`chongnuoc`='$chongnuoc',`chatlieu`='$chatlieu',`nangluong`='$nangluong',`size`='$size',`chatlieuday`='$chatlieuday',`chatlieuvo`='$chatlieuvo',`kieudang`='$kieudang',`xuatxu`='$xuatxu',`baohanh`='$baohanh' WHERE ID=$id";
+       if($anh1=="" && $anh2=="" && $anh3=="" && $anh4=="")
+       {
+           $sql="UPDATE `sanpham` SET `tensanpham`='$tensanpham',`giamoi`='$giamoi',`giacu`='$giacu',`soluong`='$soluong',`anhgoc`='$anhgoc',`ID_hang`='$ID_hang',`theloai`='$theloai',`mota`='$mota',`duongkinh`='$duongkinh',`chongnuoc`='$chongnuoc',`chatlieu`='$chatlieu',`nangluong`='$nangluong',`size`='$size',`chatlieuday`='$chatlieuday',`chatlieuvo`='$chatlieuvo',`kieudang`='$kieudang',`xuatxu`='$xuatxu',`baohanh`='$baohanh' WHERE ID=$id";
+       }
+       else{
+              $sql="UPDATE `sanpham` SET `tensanpham`='$tensanpham',`giamoi`='$giamoi',`giacu`='$giacu',`soluong`='$soluong',`anhgoc`='$anhgoc',`anh1`='$anh1',`anh2`='$anh2',`anh3`='$anh3',`anh4`='$anh4',`ID_hang`='$ID_hang',`theloai`='$theloai',`mota`='$mota',`duongkinh`='$duongkinh',`chongnuoc`='$chongnuoc',`chatlieu`='$chatlieu',`nangluong`='$nangluong',`size`='$size',`chatlieuday`='$chatlieuday',`chatlieuvo`='$chatlieuvo',`kieudang`='$kieudang',`xuatxu`='$xuatxu',`baohanh`='$baohanh' WHERE ID=$id";
+       }
        $query=mysqli_query($conn, $sql);
        echo "<script type='text/javascript'>  window.location='admin_sanpham.php'; </script>";
 	   }
