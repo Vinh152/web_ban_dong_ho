@@ -78,9 +78,16 @@ session_start();
                            <li><a href="./product.php?loai=dong ho thong minh">Đồng hồ thông minh</a></li> 
                            <li class="main-middle-left-item-list-item-active"><a href="">Sản phẩm</a> <span><i class="fas fa-chevron-down"></i></span></li>
                            <div class="main-middle-left-item-list-dropmenu">
+                            
                                <ul>
-                                   <li><a href="./product.php?loai=nam">Đồng hồ nam</a></li>
-                                   <li><a href="./product.php?loai=nu">Đồng hồ nữ</a></li>
+                               <?php
+                            $sql_hang="SELECT * FROM `hang`";
+                            $query_hang=mysqli_query($conn, $sql_hang);
+                            while($data_hang=mysqli_fetch_assoc($query_hang))
+                            {
+                            ?>
+                                   <li><a href="./product.php?loai=<?php echo $data_hang['ID_hang']?>"><?php echo $data_hang['tenhang']?></a></li>
+                            <?php }?>
                                </ul>
                            </div> 
                         </ul>
@@ -204,18 +211,9 @@ session_start();
                     if(isset($_GET["loai"]))
                     {
                         $loai=$_GET["loai"];
-                        if($loai=="nu" || $loai=="nam")
+                        if($loai!="dong ho co" || $loai!="dong ho thong minh")
                         {
-                            if($loai=="nu")
-                            {
-                             
-                                $sql="select * from sanpham where phanloai=0";
-                                
-                            }
-                            else{
-                                $sql="select * from sanpham where phanloai=1";
-                               
-                            }
+                            $sql="select * from sanpham where ID_hang= '$loai'";
                         }
                         else if($loai=="dong ho co" || $loai=="dong ho thong minh")
                         {
