@@ -47,6 +47,7 @@ session_start();
                     { 
                         $tongtien=$cart_item["gia"]*$cart_item["soluong"];
                         $thanhtoan=$thanhtoan+$tongtien;
+                        $_SESSION['thanhtoan']=$thanhtoan;
                     ?>
                     <div class="main-1-left-cart-item">
                         <p class="main-1-left-cart-item-delete"><a href="./testcart.php?xoa=<?php echo $cart_item["id"]?>"><i class="far fa-times-circle"></i></a></p>
@@ -101,9 +102,12 @@ session_start();
                         <?php
                         if(isset($_POST["capnhap"]))
                         {
-                            $tenkhachhang=$_POST["hoten"];
-                            $diachi=$_POST["diachi"];
-                            $sdt=$_POST["sdt"];
+                            $_SESSION['tenkhachhang']=$_POST["hoten"];
+                            $_SESSION['diachi']=$_POST["diachi"];
+                            $_SESSION['sdt']=$_POST["sdt"];
+                            $tenkhachhang=$_SESSION['tenkhachhang'];
+                            $diachi=$_SESSION['diachi'];
+                            $sdt=$_SESSION['sdt'];
                             echo "<p>Giao hàng miễn phí</p>";
                             echo "<p>$tenkhachhang</p>";
                             echo "<p>$diachi</p>";
@@ -118,7 +122,10 @@ session_start();
                 </div>
                 <div class="main-1-right-btn-thanhtoan">
                    <?php if(isset($tenkhachhang)&&isset($diachi)&& isset($sdt) && isset($_SESSION["cart"])) {if(strlen($tenkhachhang)!=0 && strlen($diachi)!=0 && strlen($sdt)!=0){?>
-                    <a href="./testcart.php?thanhtoan&tenkhachhang=<?php echo $tenkhachhang?>&diachi=<?php echo $diachi?>&sdt=<?php echo $sdt?>">Tiến hành thanh toán</a>
+                    <a href="./testcart.php?thanhtoan&phuongthuc=Tiền mặt">Tiến hành thanh toán (Tiền mặt)</a>
+                    <form action="./vnpay_php/index.php" method="POST" style="width: 45%">
+                        <button>Thanh toán vn pay (online)</button>
+                    </form>
                     <?php } else{?>
                         <p>Mời nhập đầy đủ thông tin người nhận</p>
                         <?php } }?>

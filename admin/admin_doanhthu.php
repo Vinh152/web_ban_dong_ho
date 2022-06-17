@@ -29,9 +29,14 @@
 				<?php
 				if(isset($_POST["submit_doanhthu"]))
 				{
-					$tongdoangthu=0;
 					$thang=$_POST["thang"];
 					$nam=$_POST["nam"];
+					if($thang=="" && $nam=="")
+					{
+						$thang=date("m");
+						$nam=date("Y");
+					}
+					$tongdoangthu=0;
 					$sql="SELECT * FROM `giohang` WHERE MONTH(thoigiandat)=$thang and YEAR(thoigiandat)=$nam";
 					$query=mysqli_query($conn, $sql);
 					$query1=mysqli_query($conn, $sql);
@@ -58,7 +63,8 @@
 					$_SESSION["nam"]=$nam;
 				}
 				
-			} else {echo "Mời bạn nhập tháng năm doanh thu";}?>
+			} else {echo "Mời bạn nhập tháng năm doanh thu";
+			}?>
                 </table>
             </div>
 			<?php if(isset($_SESSION["doanhthu"])){?><p class="mainRight_tongdoanhthu"><a href="./admin_luudoanhthu.php">Lưu thông tin doanh thu</a></p>  <?php }else{?> <p class="mainRight_tongdoanhthu">Không đáp ứng lưu doang thu</p> <?php }?>

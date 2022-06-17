@@ -151,25 +151,30 @@ if(isset($_GET["id"]))
     header("Location: ./cart.php");
 }
 
-if(isset($_GET["thanhtoan"]) && isset($_GET["tenkhachhang"]) && isset($_GET["diachi"]) && isset($_GET["sdt"]))
+if(isset($_GET["thanhtoan"]))
 {
-    $trangthai="Chưa thanh toán";
-    $id=rand(0,999);
+    $phuongthuc=$_GET["phuongthuc"];
+    if($phuongthuc=="Tiền mặt")
+    {
+        $trangthai="Chưa thanh toán";
+        $id=rand(1111,9999);
+    }
+    else{
+        $trangthai="Đã thanh toán online";
+        $id=$_SESSION["ID_giohang"];
+    }
     $thanhtoan=0;
     foreach($_SESSION["cart"] as $cart_item)
     {
         $tongtien=$cart_item["gia"]*$cart_item["soluong"];
         $thanhtoan=$thanhtoan+$tongtien;
     }
-    $tenkhachhang=$_GET["tenkhachhang"];
-    $diachi=$_GET["diachi"];
-    $sdt=$_GET["sdt"];
-    echo $tenkhachhang;
-    echo $diachi;
-    echo $sdt;
-    $sql="INSERT INTO `giohang`(`ID`, `hoten`, `sdt`, `diachi`, `thoigiandat`, `tong`, `thanhtoan`) VALUES ('$id','$tenkhachhang','$sdt','$diachi',now(),'$thanhtoan','$trangthai')";
+    $tenkhachhang=$_SESSION["tenkhachhang"];
+    $diachi=$_SESSION["diachi"];
+    $sdt=$_SESSION["sdt"];
+    $sql="INSERT INTO `giohang`(`ID`, `hoten`, `sdt`, `diachi`, `thoigiandat`, `tong`, `thanhtoan`, `phuongthuc`) VALUES ('$id','$tenkhachhang','$sdt','$diachi',now(),'$thanhtoan','$trangthai', '$phuongthuc')";
     $query=mysqli_query($conn, $sql);
-    foreach($_SESSION["cart"] as $key=> $value)
+    foreach($_SESSION["cart"] as $key=>$value)
     {
         $idsanpham=$value["id"];
         $tensanpham=$value["ten"];
@@ -180,6 +185,10 @@ if(isset($_GET["thanhtoan"]) && isset($_GET["tenkhachhang"]) && isset($_GET["dia
         $query1=mysqli_query($conn, $sql1);
     };
     unset($_SESSION["cart"]);
+    unset($_SESSION["ID_giohang"]);
+    unset($_SESSION["tenkhachhang"]);
+    unset($_SESSION["diachi"]);
+    unset($_SESSION["sdt"]);
     header("Location: ./cart.php?thongbao=thanhcong");
 }
 else{

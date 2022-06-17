@@ -172,14 +172,6 @@ else{
 				</a>
 			</li>
 			<li  class="sidebar-nav-item">
-				<a href="./admin_nhanvien_doanhthu.php" class="sidebar-nav-link">
-					<div>
-					<i class="fa-solid fa-money-bill-trend-up"></i>
-					</div>
-					<span>Doanh thu nhân viên</span>
-				</a>
-			</li>
-			<li  class="sidebar-nav-item">
 				<a href="./admin_nhanvien.php" class="sidebar-nav-link">
 					<div>
 						<i class="fa-solid fa-user"></i>

@@ -488,12 +488,20 @@ a{
 .main-1-right-btn-thanhtoan{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 .main-1-right-btn-thanhtoan a{
     display: block;
-    width: 70%;
+    width: 45%;
+    padding: 15px 0px;
+    text-align: center;
+    font-size: 1.3rem;
+    border: 1px solid black;
+}
+.main-1-right-btn-thanhtoan button{
+    display: block;
+    width: 100%;
     padding: 15px 0px;
     text-align: center;
     font-size: 1.3rem;

@@ -211,7 +211,8 @@ session_start();
                     if(isset($_GET["loai"]))
                     {
                         $loai=$_GET["loai"];
-                        if($loai!="dong ho co" || $loai!="dong ho thong minh")
+                        // echo $loai;
+                        if($loai!="dong ho co" && $loai!="dong ho thong minh")
                         {
                             $sql="select * from sanpham where ID_hang= '$loai'";
                         }

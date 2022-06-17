@@ -22,8 +22,8 @@
                     <th>Địa chỉ</th>
                     <th>Thời gian đặt</th>
                     <th>Tổng</th>
-                    <th>ID_nhanvien</th>
                     <th>Thông tin thanh toán</th>
+                    <th>Phương thức</th>
                     <th>Xem chi tiết</th> 
                     <th>Thanh toán</th>
                 </tr>
@@ -54,22 +54,16 @@
                    <td><?php echo $row["diachi"]?></td>
                    <td><?php $date = new DateTime($row["thoigiandat"]); echo $date->format('d/m/Y');?></td>
                    <td><?php echo number_format($row["tong"])?>đ</td>
-                   <td><?php if($row["ID_nhanvien"]==""){echo "Trống";} else {
-					   $id=$row["ID_nhanvien"];
-					   $sql1="select * from nhanvien where ID=$id";
-					   $query1=mysqli_query($conn, $sql1);
-					   $nhanvien=mysqli_fetch_assoc($query1);
-					   echo $nhanvien["hoten"];
-				   }?></td>
-                   <?php if($row["thanhtoan"]=="Đã thanh toán")
+                   <?php if($row["thanhtoan"]=="Đã thanh toán" || $row["thanhtoan"]=="Đã thanh toán online")
                    {
                    ?>
                    <td class="color-green text-uppercase text-fontweight"><?php echo $row["thanhtoan"]?></td>
                    <?php } else{?>
                     <td class="color-red text-uppercase text-fontweight"><?php echo $row["thanhtoan"]?></td>
                     <?php }?>
+                    <td><?php echo $row["phuongthuc"]?></td>
                    <td><a href="./admin_chitietdonhang.php?ID=<?php echo $row["ID"]?>">Xem chi tiết</a></td>
-                   <td><a href="./admin_btn_thanhtoan.php?ID_donhang=<?php echo $row["ID"];?>">Thanh toán</a></td>
+                   <td><a href="./admin_btn_thanhtoan.php?ID_donhang=<?php echo $row["ID"];?>" class="<?php if($row["thanhtoan"]=="Đã thanh toán" || $row["thanhtoan"]=="Đã thanh toán online") {echo "forbid";}?>">Thanh toán</a></td>
                 </tr>
 			<?php }?>
             </table>
